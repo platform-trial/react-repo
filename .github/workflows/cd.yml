@@ -1,0 +1,19 @@
+
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build and deploy
+        run: |
+          # build the website
+          npm run build
+          # deploy the website
+          npm run deploy
