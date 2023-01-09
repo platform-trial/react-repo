@@ -20,5 +20,6 @@ jobs:
           # build the website
           npm run build
           # deploy the website
-          npm install -g serve
-          serve -s build
+          npm install gh-pages
+	  # deploy
+          npm run deploy
