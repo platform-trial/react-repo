@@ -10,7 +10,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
 
       - name: Install our project dependencies
         run: npm install
@@ -20,4 +20,5 @@ jobs:
           # build the website
           npm run build
           # deploy the website
-          npm run deploy
+          npm install -g serve
+          serve -s build
