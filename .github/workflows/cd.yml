@@ -11,6 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
+      - name: Install our project dependencies
+        run: npm install
+
       - name: Build and deploy
         run: |
           # build the website
