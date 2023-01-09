@@ -19,7 +19,7 @@ jobs:
         run: |
           # build the website
           npm run build
-          # deploy the website
+          # deploy the website to gh-pages
           npm install gh-pages
 	  # deploy
           npm run deploy
