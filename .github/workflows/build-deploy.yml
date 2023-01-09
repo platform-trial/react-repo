@@ -5,7 +5,7 @@ on:
     branches:
       - main
 
-jobs:
+jobs: 
   build:
     runs-on: ubuntu-latest
     steps:
@@ -18,7 +18,7 @@ jobs:
           npm run build
           # install gh-pages
 
-      - name: Upload production-ready build files
+      - name: Upload production-ready build files 
         uses: actions/upload-artifact@v2
         with:
           name: production-files
