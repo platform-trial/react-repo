@@ -7,18 +7,17 @@ on:
       - main
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
-      - name: Install our project dependencies
-        run: npm install 
-
       - name: Build and deploy
-        run: |
+        run: | 
+          # install dependencies
+          npm install
           # build the website
           npm run build
-          # deploy the website to gh-pages
+          # install gh-pages
           npm install gh-pages
+          # deploy to GitHub pages
           npm run deploy
