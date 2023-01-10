@@ -9,20 +9,28 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Build and deploy 
-        run: | 
-          # install dependencies
-          npm install
-          # build the website
-          npm run build
-          # install gh-pages
+    - name: Checkout code
+      uses: actions/checkout@v2
+    
+    - name: Install Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 13.x
+    
+    - name: Install NPM packages
+      run: npm ci
+    
+    - name: Build project
+      run: npm run build
+    
+    - name: Run tests
+      run: npm run test
 
-      - name: Upload production-ready build files 
-        uses: actions/upload-artifact@v2
-        with:
-          name: production-files
-          path: ./build
+    - name: Upload production-ready build files 
+      uses: actions/upload-artifact@v2
+      with:
+        name: production-files
+        path: ./build
 
 
   deploy:
